@@ -1,9 +1,9 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import Table from "./Table/Table";
 import { TTableData } from "./Table/TTable";
 const tableData: TTableData = {
+  caption: "types of rows and columns",
   columns: [
     { title: "column1", tooltipText: "tooltip Text 1" },
     { title: "column2", tooltipText: "tooltip Text 2" },

@@ -25,6 +25,7 @@ export type TColumn = {
 
 // TABLE DATA
 export type TTableData = {
+  caption: string; // describe what the table is
   columns: TColumn[];
   rows: TRow[];
   gridColumns?: string[]; // css grid values for all column widths

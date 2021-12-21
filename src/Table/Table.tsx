@@ -30,6 +30,7 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
 
   return (
     <S.Table>
+      <caption>{tableData.caption} </caption>
       <colgroup>{colGroup}</colgroup>
       <tbody>
         <TableHeader tableHeaderData={tableData.columns} />
