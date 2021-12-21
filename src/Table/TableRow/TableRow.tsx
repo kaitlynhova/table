@@ -12,9 +12,19 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
   const cells = tableRowData.cells.map((cell: TCell) => {
     switch (cell.cellTypeName) {
       case "string":
-        return <TableCellString cellData={cell} />;
+        return (
+          <TableCellString
+            key={`${cell.cellTypeName}-cell-${cell.value}`}
+            cellData={cell}
+          />
+        );
       case "cost":
-        return <TableCellCost cellData={cell} />;
+        return (
+          <TableCellCost
+            key={`${cell.cellTypeName}-cell-${cell.value}-${cell.currency}`}
+            cellData={cell}
+          />
+        );
       default:
         return <td>undefined </td>;
     }
