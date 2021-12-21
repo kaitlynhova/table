@@ -1,0 +1,25 @@
+import React from "react";
+import * as S from "./TableRowStyles";
+import { TRow, TCell } from "../TTable";
+import TableCellString from "../TableCell/TableCellString";
+import TableCellCost from "../TableCell/TableCellCost";
+
+type TableRowProps = {
+  tableRowData: TRow;
+};
+
+const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
+  const cells = tableRowData.cells.map((cell: TCell) => {
+    switch (cell.cellTypeName) {
+      case "string":
+        return <TableCellString cellData={cell} />;
+      case "cost":
+        return <TableCellCost cellData={cell} />;
+      default:
+        return <td>undefined </td>;
+    }
+  });
+  return <S.TableRow>{cells}</S.TableRow>;
+};
+
+export default TableRow;
