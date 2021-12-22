@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./TableRowStyles";
 import { TRow, TCell } from "../TTable";
 import TableCellString from "../TableCell/TableCellString/TableCellString";
-import TableCellCost from "../TableCell/TableCellCost";
+import TableCellCost from "../TableCell/TableCellCost/TableCellCost";
 
 type TableRowProps = {
   tableRowData: TRow;
