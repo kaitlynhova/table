@@ -11,6 +11,7 @@ export type TCellCost = {
   cellTypeName: "cost";
   value: string;
   currency: string;
+  textAlign?: Property.TextAlign;
 };
 export type TCell = TCellString | TCellCost;
 

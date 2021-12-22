@@ -15,9 +15,10 @@ const tableData: TTableData = {
       onClickAriaLabel: "visit fast.co website",
       cells: [
         {
-          cellTypeName: "string",
-
-          value: "row 1 column 1",
+          cellTypeName: "cost",
+          value: "40",
+          currency: "USD",
+          textAlign: "center",
         },
         {
           cellTypeName: "string",
@@ -71,7 +72,7 @@ const tableData: TTableData = {
 function App() {
   return (
     <div className="App">
-      <Table tableData={tableData} gridColumns={["15%", "20%", "65%"]} />
+      <Table tableData={tableData} gridColumns={["65%", "20%", "15%"]} />
     </div>
   );
 }
