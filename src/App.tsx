@@ -72,7 +72,7 @@ const tableData: TTableData = {
 function App() {
   return (
     <div className="App">
-      <Table tableData={tableData} gridColumns={["65%", "20%", "15%"]} />
+      <Table tableData={tableData} gridColumns={[4, 2, 3]} />
     </div>
   );
 }

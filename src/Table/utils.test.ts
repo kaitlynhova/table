@@ -1,4 +1,7 @@
-import { calculateGridTemplateColumns } from "./utils";
+import {
+  calculateGridTemplateColumns,
+  convertColumnCountsToPercents,
+} from "./utils";
 
 describe("calculateGridTemplateColumns", () => {
   test("it calculates equal grid template columns", () => {
@@ -8,6 +11,16 @@ describe("calculateGridTemplateColumns", () => {
       "25%",
       "25%",
       "25%",
+    ]);
+  });
+});
+describe("convertColumnCountsToPercents", () => {
+  test("it calculates percents from column numbers", () => {
+    expect(convertColumnCountsToPercents([2, 2])).toEqual(["50%", "50%"]);
+    expect(convertColumnCountsToPercents([1, 5, 4])).toEqual([
+      "10%",
+      "50%",
+      "40%",
     ]);
   });
 });

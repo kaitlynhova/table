@@ -3,16 +3,19 @@ import * as S from "./TableStyles";
 import { TTableData, TRow } from "./TTable";
 import TableHeader from "./TableHeader/TableHeader";
 import TableRow from "./TableRow/TableRow";
-import { calculateGridTemplateColumns } from "./utils";
+import {
+  calculateGridTemplateColumns,
+  convertColumnCountsToPercents,
+} from "./utils";
 
 type TableProps = {
   tableData: TTableData;
-  gridColumns?: string[];
+  gridColumns?: number[];
 };
 
 const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
   const calculatedGridColumns = gridColumns
-    ? gridColumns
+    ? convertColumnCountsToPercents(gridColumns)
     : calculateGridTemplateColumns(tableData.columns.length);
 
   const colGroupColumns = calculatedGridColumns.map(
