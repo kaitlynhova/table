@@ -29,7 +29,17 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
         return <td>undefined </td>;
     }
   });
-  return <S.TableRow>{cells}</S.TableRow>;
+  return (
+    <S.TableRow
+      aria-label="woooo"
+      role={tableRowData.onClick ? "button" : "row"}
+      tabIndex={tableRowData.onClick ? 0 : -1}
+      hasOnClick={!!tableRowData.onClick}
+      onClick={tableRowData.onClick}
+    >
+      {cells}
+    </S.TableRow>
+  );
 };
 
 export default TableRow;

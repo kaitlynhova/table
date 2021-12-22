@@ -11,7 +11,7 @@ const tableData: TTableData = {
   ],
   rows: [
     {
-      isSelected: false,
+      onClick: () => {},
       cells: [
         {
           cellTypeName: "string",
@@ -31,7 +31,6 @@ const tableData: TTableData = {
       ],
     },
     {
-      isSelected: false,
       cells: [
         {
           cellTypeName: "string",
@@ -51,7 +50,6 @@ const tableData: TTableData = {
       ],
     },
     {
-      isSelected: false,
       cells: [
         {
           cellTypeName: "string",

@@ -16,7 +16,7 @@ export type TCell = TCellString | TCellCost;
 
 // ROW TYPE
 export type TRow = {
-  isSelected?: boolean;
+  onClick?: () => void;
   cells: TCell[];
 };
 
