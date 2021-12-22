@@ -1,8 +1,12 @@
+import { Property } from "csstype";
+
 // CELL TYPES
 export type TCellString = {
   cellTypeName: "string";
   value: string;
+  textAlign?: Property.TextAlign;
 };
+
 export type TCellCost = {
   cellTypeName: "cost";
   value: string;
@@ -18,9 +22,9 @@ export type TRow = {
 
 // COLUMN TYPE
 export type TColumn = {
+  textAlign?: Property.TextAlign;
   title: string;
   tooltipText?: string;
-  alignContent?: "center" | "left" | "right";
 };
 
 // TABLE DATA

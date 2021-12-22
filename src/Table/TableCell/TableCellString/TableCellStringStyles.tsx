@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import { Property } from "csstype";
 
-type TTableHeaderStyleProps = {
+type TTableCellStringStyledProps = {
   textAlign?: Property.TextAlign;
 };
-export const TableHeader = styled.th<TTableHeaderStyleProps>`
-  background-color: blue;
+export const TableCellStringStyled = styled.td<TTableCellStringStyledProps>`
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
 `;

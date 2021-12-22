@@ -8,7 +8,9 @@ type TableHeaderProps = {
 
 const TableHeader: React.FC<TableHeaderProps> = ({ tableHeaderData }) => {
   const tableHeader = tableHeaderData.map((value) => (
-    <S.TableHeader key={`${value.title}-header`}>{value.title}</S.TableHeader>
+    <S.TableHeader textAlign={value.textAlign} key={`${value.title}-header`}>
+      {value.title}
+    </S.TableHeader>
   ));
   return <tr>{tableHeader}</tr>;
 };

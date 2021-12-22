@@ -15,14 +15,17 @@ const tableData: TTableData = {
       cells: [
         {
           cellTypeName: "string",
+
           value: "row 1 column 1",
         },
         {
           cellTypeName: "string",
+
           value: "row 1 column 2",
         },
         {
           cellTypeName: "string",
+
           value: "row 1 column 3",
         },
       ],
@@ -32,14 +35,17 @@ const tableData: TTableData = {
       cells: [
         {
           cellTypeName: "string",
+
           value: "row 2 column 1",
         },
         {
           cellTypeName: "string",
+
           value: "row 2 column 2",
         },
         {
           cellTypeName: "string",
+
           value: "row 2 column 3",
         },
       ],
