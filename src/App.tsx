@@ -11,7 +11,8 @@ const tableData: TTableData = {
   ],
   rows: [
     {
-      onClick: () => {},
+      onClickUrl: "https://www.fast.co/",
+      onClickAriaLabel: "visit fast.co website",
       cells: [
         {
           cellTypeName: "string",

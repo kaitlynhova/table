@@ -1,11 +1,16 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 type TTableRowStyleProps = {
   hasOnClick: boolean;
 };
+
 export const TableRow = styled.tr<TTableRowStyleProps>`
-  background-color: red;
-  &:hover {
-    background-color: ${({ hasOnClick }) => (hasOnClick ? "pink" : "red")};
-  }
+  ${({ hasOnClick }) =>
+    css`
+      background-color: red;
+      &:hover {
+        cursor: ${hasOnClick ? "pointer" : "auto"};
+        background-color: ${hasOnClick ? "pink" : "red"};
+      }
+    `}
 `;

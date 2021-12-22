@@ -15,14 +15,14 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
     ? gridColumns
     : calculateGridTemplateColumns(tableData.columns.length);
 
-  const colGroup = calculatedGridColumns.map(
+  const colGroupColumns = calculatedGridColumns.map(
     (colWidth: string, index: number) => (
       <S.Column
         key={`${tableData.columns[index].title}-column`}
         width={colWidth}
       />
     )
-  ); // used to manage the width of
+  ); // used to manage the width of the table columns
 
   const tableRows = tableData.rows.map((row: TRow) => (
     <TableRow key={row.cells[0].value} tableRowData={row} />
@@ -31,7 +31,7 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
   return (
     <S.Table>
       <caption>{tableData.caption} </caption>
-      <colgroup>{colGroup}</colgroup>
+      <colgroup>{colGroupColumns}</colgroup>
       <tbody>
         <TableHeader tableHeaderData={tableData.columns} />
         {tableRows}

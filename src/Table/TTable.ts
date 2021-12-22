@@ -17,6 +17,8 @@ export type TCell = TCellString | TCellCost;
 // ROW TYPE
 export type TRow = {
   onClick?: () => void;
+  onClickUrl?: string;
+  onClickAriaLabel?: string;
   cells: TCell[];
 };
 
