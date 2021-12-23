@@ -12,8 +12,8 @@ import {
 } from "./utils";
 
 type TableProps = {
-  tableData: TTableData;
   gridColumns?: number[];
+  tableData: TTableData;
 };
 
 const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {

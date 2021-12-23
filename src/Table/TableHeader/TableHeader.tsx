@@ -24,8 +24,8 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
       tableHeaderData.map((column: TTableColumn, index: number) => {
         return (
           <S.TableHeader
-            textAlign={column.textAlign}
             key={`${column.title}-header`}
+            textAlign={column.textAlign}
           >
             {column.title}
             {column.isSortable && (
@@ -33,13 +33,13 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
                 aria-label={`sort ${column.title} ${
                   ESortingText[sortDirection as keyof typeof ESortingText]
                 }`}
-                tabIndex={0}
                 onClick={() => {
                   const newSortDirection =
                     sortDirection === "DESC" ? "ASC" : "DESC";
                   sortTableColumn(index, sortDirection);
                   setSortDirection(newSortDirection);
                 }}
+                tabIndex={0}
               >
                 x
               </S.SortButton>

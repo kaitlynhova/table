@@ -17,15 +17,15 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
       case "string":
         return (
           <TableCellString
-            key={`${cell.cellTypeName}-cell-${cell.value}`}
             cellData={cell}
+            key={`${cell.cellTypeName}-cell-${cell.value}`}
           />
         );
       case "cost":
         return (
           <TableCellCost
-            key={`${cell.cellTypeName}-cell-${cell.value}-${cell.currency}`}
             cellData={cell}
+            key={`${cell.cellTypeName}-cell-${cell.value}-${cell.currency}`}
           />
         );
       default:
@@ -41,8 +41,6 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
   return (
     <S.TableRow
       aria-label={tableRowData.onClickAriaLabel}
-      role={isActingLikeALink ? "link" : "row"}
-      tabIndex={isActingLikeALink ? 0 : -1}
       hasOnClick={isActingLikeALink}
       onClick={() => {
         behaveLikeLink();
@@ -52,6 +50,8 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
           behaveLikeLink();
         }
       }}
+      role={isActingLikeALink ? "link" : "row"}
+      tabIndex={isActingLikeALink ? 0 : -1}
     >
       {tableCellTags}
     </S.TableRow>

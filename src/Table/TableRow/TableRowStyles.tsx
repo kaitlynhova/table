@@ -9,8 +9,8 @@ export const TableRow = styled.tr<TTableRowStyleProps>`
     css`
       background-color: red;
       &:hover {
-        cursor: ${hasOnClick ? "pointer" : "auto"};
         background-color: ${hasOnClick ? "pink" : "red"};
+        cursor: ${hasOnClick ? "pointer" : "auto"};
       }
     `}
 `;

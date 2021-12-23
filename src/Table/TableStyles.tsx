@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
-  width: 100%;
   text-align: left;
+  width: 100%;
   caption {
     // these styles let screen readers read it without displaying in the view
     color: transparent;

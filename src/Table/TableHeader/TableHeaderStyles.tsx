@@ -13,8 +13,8 @@ export const TableHeader = styled.th<TTableHeaderStyleProps>`
 export const SortButton = styled.button`
   ${() => css`
     background-color: purple;
-    cursor: pointer;
     border: none;
+    cursor: pointer;
     width: 100%;
   `};
 `;
