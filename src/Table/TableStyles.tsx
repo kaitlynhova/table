@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
+  background-color: #ff5400;
   text-align: left;
   width: 100%;
   caption {

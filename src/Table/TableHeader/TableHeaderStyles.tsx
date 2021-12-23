@@ -5,16 +5,19 @@ type TTableHeaderStyleProps = {
   textAlign?: Property.TextAlign;
 };
 export const TableHeader = styled.th<TTableHeaderStyleProps>`
-  background-color: blue;
+  background-color: #ff9e00;
   padding: 0;
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
 `;
 
 export const SortButton = styled.button`
   ${() => css`
-    background-color: purple;
+    background-color: #ff6d00;
     border: none;
     cursor: pointer;
+    outline-color: #000000;
+    outline-width: 4px;
+    outline-offset: 2px;
     width: 100%;
   `};
 `;
