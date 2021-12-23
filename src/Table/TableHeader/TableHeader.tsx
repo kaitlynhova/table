@@ -1,23 +1,24 @@
 import React, { useState, useMemo } from "react";
 import * as S from "./TableHeaderStyles";
 import { ESortingText } from "../utils";
-import { TColumn } from "../TTable";
+import { TTableColumn } from "../TTable";
 
-export type TColumnSortOptions = "ASC" | "DESC";
+export type TTableColumnSortOptions = "ASC" | "DESC";
 
 type TTableHeaderProps = {
-  tableHeaderData: TColumn[];
-  sortColumn: (index: number, direction: TColumnSortOptions) => void;
+  tableHeaderData: TTableColumn[];
+  sorTTableColumn: (index: number, direction: TTableColumnSortOptions) => void;
 };
 
 const TableHeader: React.FC<TTableHeaderProps> = ({
   tableHeaderData,
-  sortColumn,
+  sorTTableColumn,
 }) => {
-  const [sortDirection, setSortDirection] = useState<TColumnSortOptions>("ASC");
+  const [sortDirection, setSortDirection] =
+    useState<TTableColumnSortOptions>("ASC");
   const tableHeader = useMemo(
     () =>
-      tableHeaderData.map((column: TColumn, index: number) => {
+      tableHeaderData.map((column: TTableColumn, index: number) => {
         return (
           <S.TableHeader
             textAlign={column.textAlign}
@@ -34,7 +35,7 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
                   console.log("current sort", sortDirection);
                   const newSortDirection =
                     sortDirection === "DESC" ? "ASC" : "DESC";
-                  sortColumn(index, sortDirection);
+                  sorTTableColumn(index, sortDirection);
                   setSortDirection(newSortDirection);
                 }}
               >
@@ -44,7 +45,7 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
           </S.TableHeader>
         );
       }),
-    [sortColumn, sortDirection, tableHeaderData]
+    [sorTTableColumn, sortDirection, tableHeaderData]
   );
   return <tr>{tableHeader}</tr>;
 };

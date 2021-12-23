@@ -1,9 +1,9 @@
 import React from "react";
-import { ICellCost } from "../TTableCell";
+import { ITableCellCost } from "../TTableCell";
 import * as S from "./TableCellCostStyles";
 
 type TableCellCostProps = {
-  cellData: ICellCost;
+  cellData: ITableCellCost;
 };
 
 const TableCellCost: React.FC<TableCellCostProps> = ({ cellData }) => {

@@ -9,10 +9,10 @@ export const Table = styled.table`
   }
 `;
 
-type TColumnStyleProps = {
+type TTableColumnStyleProps = {
   width: string;
 };
 
-export const Column = styled.col<TColumnStyleProps>`
+export const Column = styled.col<TTableColumnStyleProps>`
   width: ${({ width }) => width};
 `;

@@ -1,16 +1,16 @@
 import { Property } from "csstype";
-import { TCell } from "./TableCell/TTableCell";
+import { TTableCell } from "./TableCell/TTableCell";
 
 // ROW TYPE
-export type TRow = {
+export type TTableRow = {
   onClick?: () => void;
   onClickUrl?: string;
   onClickAriaLabel?: string;
-  cells: TCell[];
+  cells: TTableCell[];
 };
 
 // COLUMN TYPE
-export type TColumn = {
+export type TTableColumn = {
   textAlign?: Property.TextAlign;
   title: string;
   tooltipText?: string;
@@ -20,7 +20,7 @@ export type TColumn = {
 // TABLE DATA
 export type TTableData = {
   caption: string; // describe what the table is
-  columns: TColumn[];
-  rows: TRow[];
+  columns: TTableColumn[];
+  rows: TTableRow[];
   gridColumns?: string[]; // css grid values for all column widths
 };

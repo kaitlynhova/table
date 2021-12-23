@@ -1,12 +1,12 @@
 import React from "react";
 import * as S from "./TableRowStyles";
-import { TRow } from "../TTable";
-import { TCell } from "../TableCell/TTableCell";
+import { TTableRow } from "../TTable";
+import { TTableCell } from "../TableCell/TTableCell";
 import TableCellString from "../TableCell/TableCellString/TableCellString";
 import TableCellCost from "../TableCell/TableCellCost/TableCellCost";
 
 type TableRowProps = {
-  tableRowData: TRow;
+  tableRowData: TTableRow;
 };
 
 const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
@@ -15,7 +15,7 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
     if (tableRowData.onClick) tableRowData.onClick();
     if (tableRowData.onClickUrl) window.open(tableRowData.onClickUrl, "_blank");
   };
-  const cells = tableRowData.cells.map((cell: TCell) => {
+  const cells = tableRowData.cells.map((cell: TTableCell) => {
     switch (cell.cellTypeName) {
       case "string":
         return (
