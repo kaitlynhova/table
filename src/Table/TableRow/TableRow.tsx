@@ -10,7 +10,10 @@ type TableRowProps = {
 
 const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
   const isActingLikeALink = !!tableRowData.onClick || !!tableRowData.onClickUrl;
-
+  const behaveLikeLink = () => {
+    if (tableRowData.onClick) tableRowData.onClick();
+    if (tableRowData.onClickUrl) window.open(tableRowData.onClickUrl, "_blank");
+  };
   const cells = tableRowData.cells.map((cell: TCell) => {
     switch (cell.cellTypeName) {
       case "string":
@@ -38,9 +41,12 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
       tabIndex={isActingLikeALink ? 0 : -1}
       hasOnClick={isActingLikeALink}
       onClick={() => {
-        if (tableRowData.onClick) tableRowData.onClick();
-        if (tableRowData.onClickUrl)
-          window.open(tableRowData.onClickUrl, "_blank");
+        behaveLikeLink();
+      }}
+      onKeyDown={(event: React.KeyboardEvent) => {
+        if (event.key === "Enter") {
+          behaveLikeLink();
+        }
       }}
     >
       {cells}

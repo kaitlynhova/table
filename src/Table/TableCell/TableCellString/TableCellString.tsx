@@ -1,9 +1,9 @@
 import React from "react";
-import { TCellString } from "../../TTable";
+import { ICellString } from "../../TTable";
 import { TableCellStringStyled } from "./TableCellStringStyles";
 
 type TableCellStringProps = {
-  cellData: TCellString;
+  cellData: ICellString;
 };
 
 const TableCellString: React.FC<TableCellStringProps> = ({ cellData }) => {

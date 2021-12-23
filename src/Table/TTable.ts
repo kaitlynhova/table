@@ -1,19 +1,25 @@
 import { Property } from "csstype";
 
-// CELL TYPES
-export type TCellString = {
-  cellTypeName: "string";
-  value: string;
-  textAlign?: Property.TextAlign;
+// CELL TYPES / INTERFACES
+
+// things that all cells need
+export type TCellTemplate = {
+  value: string; // for sorting purposes
 };
 
-export type TCellCost = {
+// specific cell interfaces
+export interface ICellString extends TCellTemplate {
+  cellTypeName: "string";
+  textAlign?: Property.TextAlign;
+}
+
+export interface ICellCost extends TCellTemplate {
   cellTypeName: "cost";
-  value: string;
   currency: string;
   textAlign?: Property.TextAlign;
-};
-export type TCell = TCellString | TCellCost;
+}
+
+export type TCell = ICellString | ICellCost;
 
 // ROW TYPE
 export type TRow = {
