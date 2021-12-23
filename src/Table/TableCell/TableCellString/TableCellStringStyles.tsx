@@ -5,5 +5,5 @@ type TTableCellStringStyledProps = {
   textAlign?: Property.TextAlign;
 };
 export const TableCellStringStyled = styled.td<TTableCellStringStyledProps>`
-  text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
+  text-align: ${({ textAlign = "left" }) => textAlign};
 `;

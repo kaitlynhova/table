@@ -5,7 +5,7 @@ type TTableCellStringStyledProps = {
   textAlign?: Property.TextAlign;
 };
 export const TableCellCostStyled = styled.td<TTableCellStringStyledProps>`
-  text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
+  text-align: ${({ textAlign = "left" }) => textAlign};
 `;
 
 export const Currency = styled.span`

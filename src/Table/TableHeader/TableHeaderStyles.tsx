@@ -10,6 +10,9 @@ export const TableHeader = styled.th<TTableHeaderStyleProps>`
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
 `;
 
+// Why are you doing css here? isn't this overkill?
+// i.e. could you just put all of the styles into the button`` string template?
+
 export const SortButton = styled.button`
   ${() => css`
     background-color: #ff6d00;

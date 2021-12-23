@@ -3,6 +3,9 @@ import { ITableCellCost } from "../TTableCell";
 import * as S from "./TableCellCostStyles";
 
 type TableCellCostProps = {
+  /**
+   * All of the cell's data
+   */
   cellData: ITableCellCost;
 };
 

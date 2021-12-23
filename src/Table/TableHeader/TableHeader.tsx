@@ -6,7 +6,13 @@ import { TTableColumn } from "../TTable";
 export type TTableColumnSortOptions = "ASC" | "DESC";
 
 type TTableHeaderProps = {
+  /**
+   * All of the table header data
+   */
   tableHeaderData: TTableColumn[];
+  /**
+   * Function to call when you want to sort a column
+   */
   sortTableColumn: (index: number, direction: TTableColumnSortOptions) => void;
 };
 

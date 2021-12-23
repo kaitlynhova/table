@@ -12,7 +12,15 @@ import {
 } from "./utils";
 
 type TableProps = {
+  /**
+   * Optional prop, used to specifcy columnWidth. If used, it should be an
+   * array of valid grid-template-column values
+   * (see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns#values)
+   */
   gridColumns?: number[];
+  /**
+   * All of the data for the table to display
+   */
   tableData: TTableData;
 };
 

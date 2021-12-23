@@ -19,8 +19,8 @@ export type TTableColumn = {
 
 // TABLE DATA EXPECTED SHAPE
 export type TTableData = {
-  caption: string; // describe what the table is
+  /** Describe what the table is for */
+  caption: string;
   columns: TTableColumn[];
-  gridColumns?: number[]; // # of columns the columns should take up
   rows: TTableRow[];
 };

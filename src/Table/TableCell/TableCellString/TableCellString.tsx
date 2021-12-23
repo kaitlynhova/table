@@ -3,6 +3,9 @@ import { ITableCellString } from "../TTableCell";
 import { TableCellStringStyled } from "./TableCellStringStyles";
 
 type TableCellStringProps = {
+  /**
+   * All of the cell's data
+   */
   cellData: ITableCellString;
 };
 
