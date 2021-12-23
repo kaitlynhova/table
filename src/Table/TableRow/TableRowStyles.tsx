@@ -11,6 +11,8 @@ export const TableRow = styled.tr<TTableRowStyleProps>`
       outline-color: #000000;
       outline-width: 4px;
       outline-offset: 2px;
+      border: solid thin;
+      border-bottom: 2px solid black;
       &:hover {
         background-color: ${hasOnClick ? "#ff9e00" : "#0096c7"};
         cursor: ${hasOnClick ? "pointer" : "auto"};
