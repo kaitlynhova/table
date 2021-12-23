@@ -22,11 +22,12 @@ const tableData: TTableData = {
         },
         {
           cellTypeName: "string",
-          value: "row 2 column 2",
+          value: "row 2 column 2 Wooooooooooooooooooooooooooooooo",
+          hasEllipsis: false,
         },
         {
           cellTypeName: "string",
-          value: "row 2 column 3",
+          value: "row 2 column 3 Wooooooooooooooooooooooooooooooo",
         },
       ],
     },

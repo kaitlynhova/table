@@ -14,6 +14,7 @@ export type TTableCellTemplate = {
 export interface ITableCellString extends TTableCellTemplate {
   cellTypeName: "string";
   textAlign?: Property.TextAlign;
+  hasEllipsis?: boolean;
 }
 
 export interface ITableCellCost extends TTableCellTemplate {

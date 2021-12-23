@@ -11,7 +11,10 @@ type TableCellStringProps = {
 
 const TableCellString: React.FC<TableCellStringProps> = ({ cellData }) => {
   return (
-    <TableCellStringStyled textAlign={cellData.textAlign}>
+    <TableCellStringStyled
+      hasEllipsis={cellData.hasEllipsis}
+      textAlign={cellData.textAlign}
+    >
       {cellData.value}
     </TableCellStringStyled>
   );

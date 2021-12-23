@@ -10,6 +10,9 @@ type TTableHeaderProps = {
    * All of the table header data
    */
   tableHeaderData: TTableColumn[];
+  /**
+   * List of column width percentages
+   */
   gridColumnWidths: string[];
   /**
    * Function to call when you want to sort a column
