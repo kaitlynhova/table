@@ -7,8 +7,8 @@ import TableHeader, {
 import TableRow from "./TableRow/TableRow";
 import {
   calculateGridTemplateColumns,
-  converTTableColumnCountsToPercents,
-  sorTTableColumnData,
+  convertTableColumnCountsToPercents,
+  sortTableColumnData,
 } from "./utils";
 
 type TableProps = {
@@ -17,34 +17,44 @@ type TableProps = {
 };
 
 const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
+  // STATE
   const [storedColumnsData] = useState<TTableColumn[]>(tableData.columns);
   const [storedRowsData, setStoredRowsData] = useState<TTableRow[]>(
     tableData.rows
   );
 
-  const calculatedGridColumns = gridColumns
-    ? converTTableColumnCountsToPercents(gridColumns)
-    : calculateGridTemplateColumns(tableData.columns.length);
-
-  const colGroupColumns = useMemo(
+  // CONSTS
+  const gridColumnWidths = useMemo(
     () =>
-      calculatedGridColumns.map((colWidth: string, index: number) => (
-        <S.Column
+      gridColumns
+        ? convertTableColumnCountsToPercents(gridColumns)
+        : calculateGridTemplateColumns(tableData.columns.length),
+    [gridColumns, tableData.columns.length]
+  );
+  const colGroupColumnsTags = useMemo(
+    () =>
+      gridColumnWidths.map((colWidth: string, index: number) => (
+        <S.ColGroupColumn
           key={`${tableData.columns[index].title}-column`}
           width={colWidth}
         />
       )),
-    []
-  ); // used to manage the width of the table columns
-  const tableRows = storedRowsData.map((row: TTableRow) => (
-    <TableRow key={row.cells[0].value} tableRowData={row} />
-  ));
+    [gridColumnWidths, tableData.columns]
+  );
+  const tableRowTags = useMemo(
+    () =>
+      storedRowsData.map((row: TTableRow) => (
+        <TableRow key={row.cells[0].value} tableRowData={row} />
+      )),
+    [storedRowsData]
+  );
 
-  const sorTTableColumn = (
+  // FUNCTIONS
+  const sortTableColumn = (
     index: number,
     direction: TTableColumnSortOptions
   ) => {
-    const sortedRowsData: TTableRow[] = sorTTableColumnData(
+    const sortedRowsData: TTableRow[] = sortTableColumnData(
       index,
       direction,
       storedRowsData
@@ -55,13 +65,13 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
   return (
     <S.Table>
       <caption>{tableData.caption} </caption>
-      <colgroup>{colGroupColumns}</colgroup>
+      <colgroup>{colGroupColumnsTags}</colgroup>
       <tbody>
         <TableHeader
-          sorTTableColumn={sorTTableColumn}
+          sortTableColumn={sortTableColumn}
           tableHeaderData={storedColumnsData}
         />
-        {tableRows}
+        {tableRowTags}
       </tbody>
     </S.Table>
   );

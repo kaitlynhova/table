@@ -17,7 +17,7 @@ export type TTableColumn = {
   isSortable: boolean;
 };
 
-// TABLE DATA
+// TABLE DATA EXPECTED SHAPE
 export type TTableData = {
   caption: string; // describe what the table is
   columns: TTableColumn[];

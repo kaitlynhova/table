@@ -7,16 +7,19 @@ export type TTableColumnSortOptions = "ASC" | "DESC";
 
 type TTableHeaderProps = {
   tableHeaderData: TTableColumn[];
-  sorTTableColumn: (index: number, direction: TTableColumnSortOptions) => void;
+  sortTableColumn: (index: number, direction: TTableColumnSortOptions) => void;
 };
 
 const TableHeader: React.FC<TTableHeaderProps> = ({
   tableHeaderData,
-  sorTTableColumn,
+  sortTableColumn,
 }) => {
+  // STATE
   const [sortDirection, setSortDirection] =
     useState<TTableColumnSortOptions>("ASC");
-  const tableHeader = useMemo(
+
+  // CONSTS
+  const tableHeaderTags = useMemo(
     () =>
       tableHeaderData.map((column: TTableColumn, index: number) => {
         return (
@@ -32,10 +35,9 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
                 }`}
                 tabIndex={0}
                 onClick={() => {
-                  console.log("current sort", sortDirection);
                   const newSortDirection =
                     sortDirection === "DESC" ? "ASC" : "DESC";
-                  sorTTableColumn(index, sortDirection);
+                  sortTableColumn(index, sortDirection);
                   setSortDirection(newSortDirection);
                 }}
               >
@@ -45,9 +47,9 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
           </S.TableHeader>
         );
       }),
-    [sorTTableColumn, sortDirection, tableHeaderData]
+    [sortTableColumn, sortDirection, tableHeaderData]
   );
-  return <tr>{tableHeader}</tr>;
+  return <tr>{tableHeaderTags}</tr>;
 };
 
 export default TableHeader;

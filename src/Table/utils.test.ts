@@ -1,7 +1,7 @@
 import {
   calculateGridTemplateColumns,
-  converTTableColumnCountsToPercents,
-  sorTTableColumnData,
+  convertTableColumnCountsToPercents,
+  sortTableColumnData,
 } from "./utils";
 import { TTableRow } from "./TTable";
 
@@ -16,10 +16,10 @@ describe("calculateGridTemplateColumns", () => {
     ]);
   });
 });
-describe("converTTableColumnCountsToPercents", () => {
+describe("convertTableColumnCountsToPercents", () => {
   test("it calculates percents from column numbers", () => {
-    expect(converTTableColumnCountsToPercents([2, 2])).toEqual(["50%", "50%"]);
-    expect(converTTableColumnCountsToPercents([1, 5, 4])).toEqual([
+    expect(convertTableColumnCountsToPercents([2, 2])).toEqual(["50%", "50%"]);
+    expect(convertTableColumnCountsToPercents([1, 5, 4])).toEqual([
       "10%",
       "50%",
       "40%",
@@ -27,7 +27,7 @@ describe("converTTableColumnCountsToPercents", () => {
   });
 });
 
-describe("sorTTableColumnData", () => {
+describe("sortTableColumnData", () => {
   const descendingRows: TTableRow[] = [
     {
       cells: [
@@ -67,15 +67,13 @@ describe("sorTTableColumnData", () => {
   ];
 
   test("it sorts ascending", () => {
-    // sorts based on index of 0
-    expect(sorTTableColumnData(0, "ASC", descendingRows)).toEqual(
+    expect(sortTableColumnData(0, "ASC", descendingRows)).toEqual(
       ascendingRows
     );
   });
 
   test("it sorts descending", () => {
-    // sorts based on index of 0
-    expect(sorTTableColumnData(0, "DESC", ascendingRows)).toEqual(
+    expect(sortTableColumnData(0, "DESC", ascendingRows)).toEqual(
       descendingRows
     );
   });

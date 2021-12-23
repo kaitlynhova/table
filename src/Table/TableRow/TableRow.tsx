@@ -10,12 +10,9 @@ type TableRowProps = {
 };
 
 const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
+  // CONSTS
   const isActingLikeALink = !!tableRowData.onClick || !!tableRowData.onClickUrl;
-  const behaveLikeLink = () => {
-    if (tableRowData.onClick) tableRowData.onClick();
-    if (tableRowData.onClickUrl) window.open(tableRowData.onClickUrl, "_blank");
-  };
-  const cells = tableRowData.cells.map((cell: TTableCell) => {
+  const tableCellTags = tableRowData.cells.map((cell: TTableCell) => {
     switch (cell.cellTypeName) {
       case "string":
         return (
@@ -35,6 +32,12 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
         return <td>undefined</td>;
     }
   });
+
+  // FUNCTIONS
+  const behaveLikeLink = () => {
+    if (tableRowData.onClick) tableRowData.onClick();
+    if (tableRowData.onClickUrl) window.open(tableRowData.onClickUrl, "_blank");
+  };
   return (
     <S.TableRow
       aria-label={tableRowData.onClickAriaLabel}
@@ -50,7 +53,7 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
         }
       }}
     >
-      {cells}
+      {tableCellTags}
     </S.TableRow>
   );
 };

@@ -4,15 +4,16 @@ export const Table = styled.table`
   width: 100%;
   text-align: left;
   caption {
+    // these styles let screen readers read it without displaying in the view
     color: transparent;
     height: 0;
   }
 `;
 
-type TTableColumnStyleProps = {
+type TColGroupColumnStyleProps = {
   width: string;
 };
 
-export const Column = styled.col<TTableColumnStyleProps>`
+export const ColGroupColumn = styled.col<TColGroupColumnStyleProps>`
   width: ${({ width }) => width};
 `;
