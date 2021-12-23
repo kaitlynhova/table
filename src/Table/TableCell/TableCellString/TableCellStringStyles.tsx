@@ -5,7 +5,7 @@ type TTableCellStringStyledProps = {
   textAlign?: Property.TextAlign;
   hasEllipsis?: boolean;
 };
-export const TableCellStringStyled = styled.td<TTableCellStringStyledProps>`
+export const TableCellStringStyled = styled.div<TTableCellStringStyledProps>`
   ${({ textAlign = "left" }) => css`
     text-align: ${textAlign};
   `}

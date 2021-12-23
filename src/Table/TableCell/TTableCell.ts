@@ -8,6 +8,7 @@ export type TTableCellTemplate = {
 // SPECIFIC CELL INTERFACES
 /** Copy and paste the following template for new cell interfaces -->
    export interface ITableCell<SPECIFIC_CELL_TYPE_NAME_HERE> extends TTableCellTemplate {
+    cellTypeName: 'newTypeHere';
     // specific stuff here
    }
 */

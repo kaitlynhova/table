@@ -2,8 +2,7 @@ import React from "react";
 import * as S from "./TableRowStyles";
 import { TTableRow } from "../TTable";
 import { TTableCell } from "../TableCell/TTableCell";
-import TableCellString from "../TableCell/TableCellString/TableCellString";
-import TableCellCost from "../TableCell/TableCellCost/TableCellCost";
+import TableCell from "../TableCell/TableCell";
 
 type TableRowProps = {
   /**
@@ -15,30 +14,9 @@ type TableRowProps = {
 const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
   // CONSTS
   const isActingLikeALink = !!tableRowData.onClick || !!tableRowData.onClickUrl;
-  const tableCellTags = React.useMemo(
-    () =>
-      tableRowData.cells.map((cell: TTableCell) => {
-        switch (cell.cellTypeName) {
-          case "string":
-            return (
-              <TableCellString
-                cellData={cell}
-                key={`${cell.cellTypeName}-cell-${cell.value}`}
-              />
-            );
-          case "cost":
-            return (
-              <TableCellCost
-                cellData={cell}
-                key={`${cell.cellTypeName}-cell-${cell.value}-${cell.currency}`}
-              />
-            );
-          default:
-            return <td>undefined</td>;
-        }
-      }),
-    [tableRowData.cells]
-  );
+  const tableCellTags = tableRowData.cells.map((cell: TTableCell) => {
+    return <TableCell cellData={cell} />;
+  });
 
   // FUNCTIONS
   const behaveLikeLink = () => {
