@@ -12,7 +12,7 @@ const TableHeader: React.FC<TableHeaderProps> = ({
   tableHeaderData,
   sortColumn,
 }) => {
-  const [sortDirection, setSortDirection] = useState("ASC");
+  const [sortDirection, setSortDirection] = useState<"ASC" | "DESC">("ASC");
   const tableHeader = tableHeaderData.map((column: TColumn, index: number) => {
     return (
       <S.TableHeader
@@ -27,9 +27,10 @@ const TableHeader: React.FC<TableHeaderProps> = ({
             }`}
             tabIndex={0}
             onClick={() => {
+              console.log("current sort", sortDirection);
               const newSortDirection =
                 sortDirection === "DESC" ? "ASC" : "DESC";
-              sortColumn(index, newSortDirection);
+              sortColumn(index, sortDirection);
               setSortDirection(newSortDirection);
             }}
           >
