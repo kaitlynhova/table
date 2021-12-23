@@ -1,6 +1,7 @@
 import React from "react";
 import * as S from "./TableRowStyles";
-import { TRow, TCell } from "../TTable";
+import { TRow } from "../TTable";
+import { TCell } from "../TableCell/TTableCell";
 import TableCellString from "../TableCell/TableCellString/TableCellString";
 import TableCellCost from "../TableCell/TableCellCost/TableCellCost";
 

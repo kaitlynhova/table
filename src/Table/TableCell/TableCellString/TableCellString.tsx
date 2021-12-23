@@ -1,5 +1,5 @@
 import React from "react";
-import { ICellString } from "../../TTable";
+import { ICellString } from "../TTableCell";
 import { TableCellStringStyled } from "./TableCellStringStyles";
 
 type TableCellStringProps = {

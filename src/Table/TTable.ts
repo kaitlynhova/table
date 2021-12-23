@@ -1,25 +1,5 @@
 import { Property } from "csstype";
-
-// CELL TYPES / INTERFACES
-
-// things that all cells need
-export type TCellTemplate = {
-  value: string; // for sorting purposes
-};
-
-// specific cell interfaces
-export interface ICellString extends TCellTemplate {
-  cellTypeName: "string";
-  textAlign?: Property.TextAlign;
-}
-
-export interface ICellCost extends TCellTemplate {
-  cellTypeName: "cost";
-  currency: string;
-  textAlign?: Property.TextAlign;
-}
-
-export type TCell = ICellString | ICellCost;
+import { TCell } from "./TableCell/TTableCell";
 
 // ROW TYPE
 export type TRow = {

@@ -1,4 +1,5 @@
-import { TRow, TCell } from "./TTable";
+import { TRow } from "./TTable";
+import { TColumnSortOptions } from "./TableHeader/TableHeader";
 
 export enum ESortingText {
   "ASC" = "ascending",
@@ -18,7 +19,7 @@ export const convertColumnCountsToPercents = (gridColumns: number[]) => {
 
 export const sortColumnData = (
   sortIndex: number,
-  direction: "ASC" | "DESC",
+  direction: TColumnSortOptions,
   rowData: TRow[]
 ): TRow[] => {
   switch (direction) {

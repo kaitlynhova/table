@@ -1,5 +1,5 @@
 import React from "react";
-import { ICellCost } from "../../TTable";
+import { ICellCost } from "../TTableCell";
 import * as S from "./TableCellCostStyles";
 
 type TableCellCostProps = {
