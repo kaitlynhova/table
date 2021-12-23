@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./TableStyles";
-import { TTableData, TRow } from "./TTable";
+import { TTableData, TColumn, TRow } from "./TTable";
 import TableHeader from "./TableHeader/TableHeader";
 import TableRow from "./TableRow/TableRow";
 import {
   calculateGridTemplateColumns,
   convertColumnCountsToPercents,
+  sortColumnData,
 } from "./utils";
 
 type TableProps = {
@@ -14,6 +15,9 @@ type TableProps = {
 };
 
 const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
+  const [storedColumnsData] = useState<TColumn[]>(tableData.columns);
+  const [storedRowsData, setStoredRowsData] = useState<TRow[]>(tableData.rows);
+
   const calculatedGridColumns = gridColumns
     ? convertColumnCountsToPercents(gridColumns)
     : calculateGridTemplateColumns(tableData.columns.length);
@@ -26,17 +30,28 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
       />
     )
   ); // used to manage the width of the table columns
-
-  const tableRows = tableData.rows.map((row: TRow) => (
+  const tableRows = storedRowsData.map((row: TRow) => (
     <TableRow key={row.cells[0].value} tableRowData={row} />
   ));
+
+  const sortColumn = (index: number, direction: "ASC" | "DESC") => {
+    const sortedRowsData: TRow[] = sortColumnData(
+      index,
+      direction,
+      storedRowsData
+    );
+    setStoredRowsData([...sortedRowsData]);
+  };
 
   return (
     <S.Table>
       <caption>{tableData.caption} </caption>
       <colgroup>{colGroupColumns}</colgroup>
       <tbody>
-        <TableHeader tableHeaderData={tableData.columns} />
+        <TableHeader
+          sortColumn={sortColumn}
+          tableHeaderData={storedColumnsData}
+        />
         {tableRows}
       </tbody>
     </S.Table>

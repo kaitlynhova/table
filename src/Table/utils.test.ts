@@ -1,7 +1,9 @@
 import {
   calculateGridTemplateColumns,
   convertColumnCountsToPercents,
+  sortColumnData,
 } from "./utils";
+import { TRow } from "./TTable";
 
 describe("calculateGridTemplateColumns", () => {
   test("it calculates equal grid template columns", () => {
@@ -22,5 +24,55 @@ describe("convertColumnCountsToPercents", () => {
       "50%",
       "40%",
     ]);
+  });
+});
+
+describe("sortColumnData", () => {
+  const descendingRows: TRow[] = [
+    {
+      cells: [
+        {
+          cellTypeName: "string",
+          value: "B",
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          cellTypeName: "string",
+          value: "A",
+        },
+      ],
+    },
+  ];
+
+  const ascendingRows: TRow[] = [
+    {
+      cells: [
+        {
+          cellTypeName: "string",
+          value: "A",
+        },
+      ],
+    },
+    {
+      cells: [
+        {
+          cellTypeName: "string",
+          value: "B",
+        },
+      ],
+    },
+  ];
+
+  test("it sorts ascending", () => {
+    // sorts based on index of 0
+    expect(sortColumnData(0, "ASC", descendingRows)).toEqual(ascendingRows);
+  });
+
+  test("it sorts descending", () => {
+    // sorts based on index of 0
+    expect(sortColumnData(0, "DESC", ascendingRows)).toEqual(descendingRows);
   });
 });

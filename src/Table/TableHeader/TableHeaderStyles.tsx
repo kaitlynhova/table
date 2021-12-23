@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Property } from "csstype";
 
 type TTableHeaderStyleProps = {
@@ -6,5 +6,15 @@ type TTableHeaderStyleProps = {
 };
 export const TableHeader = styled.th<TTableHeaderStyleProps>`
   background-color: blue;
+  padding: 0;
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
+`;
+
+export const SortButton = styled.button`
+  ${() => css`
+    background-color: purple;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+  `};
 `;

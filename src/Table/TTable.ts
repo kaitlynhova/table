@@ -28,6 +28,7 @@ export type TColumn = {
   textAlign?: Property.TextAlign;
   title: string;
   tooltipText?: string;
+  isSortable: boolean;
 };
 
 // TABLE DATA
