@@ -39,16 +39,7 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
         : calculateGridTemplateColumns(tableData.columns.length),
     [gridColumns, tableData.columns.length]
   );
-  const colGroupColumnsTags = useMemo(
-    () =>
-      gridColumnWidths.map((colWidth: string, index: number) => (
-        <S.ColGroupColumn
-          key={`${tableData.columns[index].title}-column`}
-          width={colWidth}
-        />
-      )),
-    [gridColumnWidths, tableData.columns]
-  );
+
   const tableRowTags = useMemo(
     () =>
       storedRowsData.map((row: TTableRow) => (
@@ -73,9 +64,9 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
   return (
     <S.Table>
       <caption>{tableData.caption} </caption>
-      <colgroup>{colGroupColumnsTags}</colgroup>
       <tbody>
         <TableHeader
+          gridColumnWidths={gridColumnWidths}
           sortTableColumn={sortTableColumn}
           tableHeaderData={storedColumnsData}
         />

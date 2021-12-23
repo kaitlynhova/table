@@ -3,11 +3,19 @@ import { Property } from "csstype";
 
 type TTableHeaderStyleProps = {
   textAlign?: Property.TextAlign;
+  width: string;
 };
 export const TableHeader = styled.th<TTableHeaderStyleProps>`
   background-color: #ff9e00;
   padding: 0;
+  width: ${({ width }) => width};
   text-align: ${({ textAlign }) => (textAlign ? textAlign : "left")};
+`;
+
+export const TableHeaderP = styled.p`
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 // Why are you doing css here? isn't this overkill?

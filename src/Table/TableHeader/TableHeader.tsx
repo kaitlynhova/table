@@ -10,6 +10,7 @@ type TTableHeaderProps = {
    * All of the table header data
    */
   tableHeaderData: TTableColumn[];
+  gridColumnWidths: string[];
   /**
    * Function to call when you want to sort a column
    */
@@ -19,6 +20,7 @@ type TTableHeaderProps = {
 const TableHeader: React.FC<TTableHeaderProps> = ({
   tableHeaderData,
   sortTableColumn,
+  gridColumnWidths,
 }) => {
   // STATE
   const [sortDirection, setSortDirection] =
@@ -32,8 +34,9 @@ const TableHeader: React.FC<TTableHeaderProps> = ({
           <S.TableHeader
             key={`${column.title}-header`}
             textAlign={column.textAlign}
+            width={gridColumnWidths[index]}
           >
-            {column.title}
+            <S.TableHeaderP>{column.title}</S.TableHeaderP>
             {column.isSortable && (
               <S.SortButton
                 aria-label={`sort ${column.title} ${

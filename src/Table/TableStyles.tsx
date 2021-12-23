@@ -4,6 +4,7 @@ export const Table = styled.table`
   background-color: #ff5400;
   text-align: left;
   width: 100%;
+  table-layout: fixed;
   caption {
     // these styles let screen readers read it without displaying in the view
     color: transparent;
