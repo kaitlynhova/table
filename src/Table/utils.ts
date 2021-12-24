@@ -7,7 +7,7 @@ export const calculateGridTemplateColumns = (columnsLength: number) => {
 };
 
 // allow engineers to give us column #s and then we convert to percentages here.
-// ex: [6, 6] = ["50%", "50%"]
+// ex: [6, 6] => ["50%", "50%"]
 // Note: the table should live in a grid layout.
 export const convertTableColumnCountsToPercents = (gridColumns: number[]) => {
   const totalColumnsCount = gridColumns.reduce(
@@ -17,7 +17,6 @@ export const convertTableColumnCountsToPercents = (gridColumns: number[]) => {
   const columnPercentages = gridColumns.map(
     (columnNumber: number) => `${(columnNumber / totalColumnsCount) * 100}%`
   );
-
   return columnPercentages;
 };
 
@@ -49,7 +48,7 @@ export const sortTableColumnData = (
       );
     }
     default: {
-      // ASCENDING
+      // Ascending as default
       return [...rowData].sort((a, b) =>
         a.cells[sortIndex].value < b.cells[sortIndex].value ? -1 : 1
       );

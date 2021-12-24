@@ -11,6 +11,7 @@ export type TTableRow = {
 };
 
 // COLUMN TYPE
+// Note: used for th tags
 export type TTableColumn = {
   isSortable: boolean;
   textAlign?: Property.TextAlign;
