@@ -15,7 +15,7 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
   // CONSTS
   const isActingLikeALink = !!tableRowData.onClick || !!tableRowData.onClickUrl;
   const tableCellTags = tableRowData.cells.map((cell: TTableCell) => {
-    return <TableCell cellData={cell} />;
+    return <TableCell key={cell.value} cellData={cell} />;
   });
 
   // FUNCTIONS
@@ -28,10 +28,10 @@ const TableRow: React.FC<TableRowProps> = ({ tableRowData }) => {
       aria-label={tableRowData.onClickAriaLabel}
       hasOnClick={isActingLikeALink}
       onClick={() => {
-        behaveLikeLink();
+        if (isActingLikeALink) behaveLikeLink();
       }}
       onKeyDown={(event: React.KeyboardEvent) => {
-        if (event.key === "Enter") {
+        if (isActingLikeALink && event.key === "Enter") {
           behaveLikeLink();
         }
       }}

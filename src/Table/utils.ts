@@ -1,10 +1,4 @@
 import { TTableRow } from "./TTable";
-import { TTableColumnSortOptions } from "./TableHeader/TableHeader";
-
-export enum ESortingText {
-  "ASC" = "ascending",
-  "DESC" = "descending",
-}
 
 // calculate default equal column widths based on column list length
 export const calculateGridTemplateColumns = (columnsLength: number) => {
@@ -27,22 +21,37 @@ export const convertTableColumnCountsToPercents = (gridColumns: number[]) => {
   return columnPercentages;
 };
 
+// SORTING RELATED
+
+export enum ETableColumnSortDirections {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+export type TTableColumnSortDirections =
+  keyof typeof ETableColumnSortDirections;
+
 // sort table column data by cell's value by index (column #)
 // Note: all cells extend TTableCellTemplate type so we can sort by it's value
 export const sortTableColumnData = (
   sortIndex: number,
-  direction: TTableColumnSortOptions,
+  direction: TTableColumnSortDirections,
   rowData: TTableRow[]
 ): TTableRow[] => {
   switch (direction) {
-    case "ASC": {
+    case ETableColumnSortDirections.ASCENDING: {
       return [...rowData].sort((a, b) =>
         a.cells[sortIndex].value < b.cells[sortIndex].value ? -1 : 1
       );
     }
-    case "DESC": {
+    case ETableColumnSortDirections.DESCENDING: {
       return [...rowData].sort((a, b) =>
         a.cells[sortIndex].value < b.cells[sortIndex].value ? 1 : -1
+      );
+    }
+    default: {
+      // ASCENDING
+      return [...rowData].sort((a, b) =>
+        a.cells[sortIndex].value < b.cells[sortIndex].value ? -1 : 1
       );
     }
   }

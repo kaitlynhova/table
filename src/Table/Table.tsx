@@ -1,14 +1,13 @@
 import React, { useState, useMemo } from "react";
 import * as S from "./TableStyles";
 import { TTableData, TTableColumn, TTableRow } from "./TTable";
-import TableHeader, {
-  TTableColumnSortOptions,
-} from "./TableHeader/TableHeader";
+import TableHeader from "./TableHeader/TableHeader";
 import TableRow from "./TableRow/TableRow";
 import {
   calculateGridTemplateColumns,
   convertTableColumnCountsToPercents,
   sortTableColumnData,
+  TTableColumnSortDirections,
 } from "./utils";
 
 type TableProps = {
@@ -51,7 +50,7 @@ const Table: React.FC<TableProps> = ({ tableData, gridColumns }) => {
   // FUNCTIONS
   const sortTableColumn = (
     index: number,
-    direction: TTableColumnSortOptions
+    direction: TTableColumnSortDirections
   ) => {
     const sortedRowsData: TTableRow[] = sortTableColumnData(
       index,

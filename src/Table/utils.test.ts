@@ -2,6 +2,7 @@ import {
   calculateGridTemplateColumns,
   convertTableColumnCountsToPercents,
   sortTableColumnData,
+  ETableColumnSortDirections,
 } from "./utils";
 import { TTableRow } from "./TTable";
 
@@ -67,14 +68,22 @@ describe("sortTableColumnData", () => {
   ];
 
   test("it sorts ascending", () => {
-    expect(sortTableColumnData(0, "ASC", descendingRows)).toEqual(
-      ascendingRows
-    );
+    expect(
+      sortTableColumnData(
+        0,
+        ETableColumnSortDirections.ASCENDING,
+        descendingRows
+      )
+    ).toEqual(ascendingRows);
   });
 
   test("it sorts descending", () => {
-    expect(sortTableColumnData(0, "DESC", ascendingRows)).toEqual(
-      descendingRows
-    );
+    expect(
+      sortTableColumnData(
+        0,
+        ETableColumnSortDirections.DESCENDING,
+        ascendingRows
+      )
+    ).toEqual(descendingRows);
   });
 });
