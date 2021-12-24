@@ -12,7 +12,7 @@ import {
 
 type TableProps = {
   /**
-   * Optional prop, used to specifcy columnWidth. If used, it should be an
+   * Optional prop, used to specify columnWidth. If used, it should be an
    * array of valid grid-template-column values
    * (see https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns#values)
    */
